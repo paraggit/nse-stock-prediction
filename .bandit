@@ -1,0 +1,58 @@
+# Bandit security linting configuration
+# https://bandit.readthedocs.io/en/latest/config.html
+
+# Test IDs to skip globally
+skips:
+  - B101  # assert_used - common in tests and data validation
+  - B601  # paramiko_calls - if using paramiko for legitimate purposes
+  - B602  # subprocess_popen_with_shell_equals_true - when shell=True is needed
+  - B603  # subprocess_without_shell_equals_true - subprocess usage
+  - B607  # start_process_with_partial_path - legitimate use of subprocess
+
+# Test IDs to include (leave empty to include all)
+tests: []
+
+# Paths to exclude from scanning
+exclude_dirs:
+  - tests
+  - test
+  - venv
+  - .venv
+  - env
+  - .env
+  - node_modules
+  - __pycache__
+  - .git
+  - .tox
+  - .pytest_cache
+  - build
+  - dist
+  - docs/_build
+  - migrations
+
+# Files to exclude (glob patterns)
+exclude:
+  - "*/test_*.py"
+  - "*/tests/*.py"
+  - "*_test.py"
+  - "conftest.py"
+  - "setup.py"
+
+# Confidence levels: LOW, MEDIUM, HIGH
+confidence: MEDIUM
+
+# Severity levels: LOW, MEDIUM, HIGH
+severity: MEDIUM
+
+# Additional options
+recursive: true
+aggregate: file
+number: 3
+format: custom
+msg-template: "{abspath}:{line}: [{test_id}:{severity}] {msg}"
+
+# Custom baseline file (optional)
+# baseline: .bandit_baseline
+
+# Plugin directory (if you have custom plugins)
+# plugins_dir: /path/to/plugins
