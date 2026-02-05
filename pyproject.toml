@@ -92,7 +92,7 @@ mkdocs-jupyter = "^0.24.0"
 mkdocs-awesome-pages-plugin = "^2.9.0"
 
 [tool.poetry.group.lint.dependencies]
-ruff = "^0.1.0"
+ruff = "^0.15.0"
 pyupgrade = "^3.10.0"
 docformatter = "^1.7.0"
 
