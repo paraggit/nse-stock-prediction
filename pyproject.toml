@@ -79,7 +79,7 @@ safety = "^2.3.0"
 [tool.poetry.group.test.dependencies]
 factory-boy = "^3.3.0"
 freezegun = "^1.2.0"
-responses = "^0.23.0"
+responses = "^0.26.0"
 httpx = "^0.25.0"
 pytest-benchmark = "^4.0.0"
 coverage = {extras = ["toml"], version = "^7.3.0"}
